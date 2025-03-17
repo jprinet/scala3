@@ -103,7 +103,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-test_non_bootstrapped
           path: local-cache.tgz
           retention-days: 7
 
@@ -166,7 +166,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-test
           path: local-cache.tgz
           retention-days: 7
 
@@ -218,7 +218,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-test_scala2_library_tasty
           path: local-cache.tgz
           retention-days: 7
 
@@ -274,7 +274,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-mima
           path: local-cache.tgz
           retention-days: 7
 
@@ -333,7 +333,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-community_build_a
           path: local-cache.tgz
           retention-days: 7
 
@@ -392,7 +392,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-community_build_b
           path: local-cache.tgz
           retention-days: 7
 
@@ -451,7 +451,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-community_build_c
           path: local-cache.tgz
           retention-days: 7
 
@@ -500,7 +500,7 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-test_sbt
           path: local-cache.tgz
           retention-days: 7
 
@@ -562,6 +562,6 @@ jobs:
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
-          name: local-cache
+          name: local-cache-test_java8
           path: local-cache.tgz
           retention-days: 7
