@@ -94,12 +94,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: test_non_bootstrapped-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test_non_bootstrapped-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -157,12 +157,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: test-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -209,12 +209,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: test_scala2_library_tasty-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test_scala2_library_tasty-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -265,12 +265,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: mima-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            mima-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -324,12 +324,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: community_build_a-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            community_build_a-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -383,12 +383,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: community_build_b-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            community_build_b-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -442,12 +442,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: community_build_c-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            community_build_c-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -491,12 +491,12 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: test_sbt-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test_sbt-${{ github.event.pull_request.number }}-
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -552,13 +552,13 @@ jobs:
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
 #        with:
-#          path: /root/.sbt/1.0/.develocity
+#          path: /root/.sbt/1.0/.develocity/build-cache
 #          key: test_java8-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test_java8-${{ github.event.pull_request.number }}-
 
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
