@@ -341,7 +341,7 @@ object Build {
       )
       config
 //        .withProjectId(ProjectId("scala3"))
-        .withServer(config.server.withUrl(Some(url("https://ge-solutions-team.gradle.com"))))
+        .withServer(config.server.withUrl(Some(url("https://ge.solutions-team.gradle.com"))))
         .withBuildScan(
           buildScan
             .withPublishing(Publishing.onlyIf(_.authenticated))
