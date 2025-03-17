@@ -340,8 +340,8 @@ object Build {
         "dotty.tools.repl.ScriptedTests"
       )
       config
-        .withProjectId(ProjectId("scala3"))
-        .withServer(config.server.withUrl(Some(url("https://develocity.scala-lang.org"))))
+//        .withProjectId(ProjectId("scala3"))
+        .withServer(config.server.withUrl(Some(url("https://ge-solutions-team.gradle.com"))))
         .withBuildScan(
           buildScan
             .withPublishing(Publishing.onlyIf(_.authenticated))

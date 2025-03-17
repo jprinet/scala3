@@ -22,8 +22,6 @@ on:
       - 'lts-**'
   pull_request:
   merge_group:
-  schedule:
-    - cron: '0 3 * * *'  # Every day at 3 AM
   workflow_dispatch:
 
 # Cancels any in-progress runs within the same group identified by workflow name and GH reference (branch or tag) 
