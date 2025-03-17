@@ -89,7 +89,7 @@ jobs:
         # to quickly run the tests without the cost of bootstrapping
         # and also to run tests when the compiler doesn't bootstrap
         run: |
-          ./project/scripts/sbt ";compile ;test"
+          ./project/scripts/sbt "clean ;compile ;test"
           ./project/scripts/cmdTests
 #      - name: Cache Develocity local cache
 #        uses: actions/cache@v4
@@ -98,6 +98,8 @@ jobs:
 #          key: test_non_bootstrapped-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
 #          restore-keys: |
 #            test_non_bootstrapped-${{ github.event.pull_request.number }}-
+      - name: Ls
+        run: ls -ltR -C /root/.sbt
       - name: Tar local cache
         run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
