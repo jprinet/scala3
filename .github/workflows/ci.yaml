@@ -52,7 +52,7 @@ env:
 
 jobs:
   test_non_bootstrapped:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -93,7 +93,7 @@ jobs:
           ./project/scripts/cmdTests
 
   test:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -140,7 +140,7 @@ jobs:
         run: ./project/scripts/sbt ";set ThisBuild/Build.scala2Library := Build.Scala2LibraryCCTasty; scala2-library-cc/compile; scala2-library-cc-tasty/compile; scala3-bootstrapped/testCompilation i3"
 
   test_scala2_library_tasty:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -177,7 +177,7 @@ jobs:
 
   mima:
     name: MiMa
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -216,7 +216,7 @@ jobs:
           ./project/scripts/scala2-library-tasty-mima.sh
 
   community_build_a:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -259,7 +259,7 @@ jobs:
         run: cat community-build/dotty-community-build-deps || true
 
   community_build_b:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -302,7 +302,7 @@ jobs:
         run: cat community-build/dotty-community-build-deps || true
 
   community_build_c:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -345,7 +345,7 @@ jobs:
         run: cat community-build/dotty-community-build-deps || true
 
   test_sbt:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
@@ -378,7 +378,7 @@ jobs:
         run: ./project/scripts/sbt "sbt-test/scripted; sbt-community-build/scripted"
 
   test_java8:
-    runs-on: Linux
+    runs-on: ubuntu-latest
     container:
       image: lampepfl/dotty:2024-10-18
       options: --cpu-shares 4096
