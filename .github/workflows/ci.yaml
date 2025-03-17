@@ -91,13 +91,21 @@ jobs:
         run: |
           ./project/scripts/sbt ";compile ;test"
           ./project/scripts/cmdTests
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: test_non_bootstrapped-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            test_non_bootstrapped-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: test_non_bootstrapped-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            test_non_bootstrapped-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   test:
     runs-on: ubuntu-latest
@@ -146,13 +154,21 @@ jobs:
       - name: Test with Scala 2 library with CC TASTy (fast)
         run: ./project/scripts/sbt ";set ThisBuild/Build.scala2Library := Build.Scala2LibraryCCTasty; scala2-library-cc/compile; scala2-library-cc-tasty/compile; scala3-bootstrapped/testCompilation i3"
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: test-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            test-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: test-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            test-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   test_scala2_library_tasty:
     runs-on: ubuntu-latest
@@ -190,13 +206,21 @@ jobs:
       - name: Test with Scala 2 library with CC TASTy
         run: ./project/scripts/sbt ";set ThisBuild/Build.scala2Library := Build.Scala2LibraryCCTasty ;scala3-bootstrapped/test"
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: test_scala2_library_tasty-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            test_scala2_library_tasty-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: test_scala2_library_tasty-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            test_scala2_library_tasty-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   mima:
     name: MiMa
@@ -238,13 +262,21 @@ jobs:
           # This script cleans the compiler and recompiles it from scratch (keep as last run)
           ./project/scripts/scala2-library-tasty-mima.sh
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: mima-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            mima-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: mima-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            mima-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   community_build_a:
     runs-on: ubuntu-latest
@@ -289,13 +321,21 @@ jobs:
         if: ${{ always() }}
         run: cat community-build/dotty-community-build-deps || true
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: community_build_a-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            community_build_a-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: community_build_a-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            community_build_a-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   community_build_b:
     runs-on: ubuntu-latest
@@ -340,13 +380,21 @@ jobs:
         if: ${{ always() }}
         run: cat community-build/dotty-community-build-deps || true
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: community_build_b-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            community_build_b-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: community_build_b-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            community_build_b-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   community_build_c:
     runs-on: ubuntu-latest
@@ -391,13 +439,21 @@ jobs:
         if: ${{ always() }}
         run: cat community-build/dotty-community-build-deps || true
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: community_build_c-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            community_build_c-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: community_build_c-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            community_build_c-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   test_sbt:
     runs-on: ubuntu-latest
@@ -432,13 +488,21 @@ jobs:
       - name: Test sbt
         run: ./project/scripts/sbt "sbt-test/scripted; sbt-community-build/scripted"
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: test_sbt-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            test_sbt-${{ github.event.pull_request.number }}-
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
         with:
-          path: /root/.sbt/1.0/.develocity
-          key: test_sbt-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            test_sbt-${{ github.event.pull_request.number }}-
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
 
   test_java8:
     runs-on: ubuntu-latest
@@ -485,11 +549,19 @@ jobs:
         run: |
           ./project/scripts/sbt ";sjsSandbox/run ;sjsSandbox/test ;sjsJUnitTests/test ;set sjsJUnitTests/scalaJSLinkerConfig ~= switchToESModules ;sjsJUnitTests/test ;sjsCompilerTests/test"
 
-      - name: Cache Develocity local cache
-        uses: actions/cache@v4
-        with:
-          path: /root/.sbt/1.0/.develocity
-          key: test_java8-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
-          restore-keys: |
-            test_java8-${{ github.event.pull_request.number }}-
+#      - name: Cache Develocity local cache
+#        uses: actions/cache@v4
+#        with:
+#          path: /root/.sbt/1.0/.develocity
+#          key: test_java8-${{ github.event.pull_request.number }}-${{ github.event.pull_request.head.sha }}
+#          restore-keys: |
+#            test_java8-${{ github.event.pull_request.number }}-
 
+      - name: Tar local cache
+        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity
+      - name: Upload local cache
+        uses: actions/upload-artifact@v4
+        with:
+          name: local-cache
+          path: local-cache.tgz
+          retention-days: 7
