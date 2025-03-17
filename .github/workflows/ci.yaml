@@ -259,7 +259,9 @@ jobs:
         run: |
           ./project/scripts/sbt "clean ;scala3-interfaces/mimaReportBinaryIssues ;scala3-library-bootstrapped/mimaReportBinaryIssues ;scala3-library-bootstrappedJS/mimaReportBinaryIssues; tasty-core-bootstrapped/mimaReportBinaryIssues; scala2-library-bootstrapped/mimaReportBinaryIssues"
       - name: Ls
-        run: ls -ltR -C /root/.sbt
+        run: ls -ltR /
+      - name: Ls
+        run: ls -ltR /root/.sbt
       - name: Tar local cache
         run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
       - name: Upload local cache
