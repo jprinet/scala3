@@ -353,7 +353,8 @@ object Build {
         )
         .withBuildCache(
           buildCache
-            .withLocal(buildCache.local.withEnabled(true).withStoreEnabled(true))
+//            .withLocal(buildCache.local.withEnabled(true).withStoreEnabled(true))
+            .withLocal(buildCache.local.withEnabled(true).withStoreEnabled(true).withDirectory(Some(file("/root/.develocity"))))
             .withRemote(buildCache.remote.withEnabled(false).withStoreEnabled(false))
             .withRequireClean(false)
         )
