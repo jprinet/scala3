@@ -96,9 +96,9 @@ jobs:
           ./project/scripts/cmdTests
 
       - name: Ls
-        run: ls -ltR -C /tmp/develocity-cache
+        run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -157,7 +157,7 @@ jobs:
         run: ./project/scripts/sbt ";set ThisBuild/Build.scala2Library := Build.Scala2LibraryCCTasty; scala2-library-cc/compile; scala2-library-cc-tasty/compile; scala3-bootstrapped/testCompilation i3"
 
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /root/.sbt/1.0/.develocity/build-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -207,7 +207,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -264,7 +264,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -321,7 +321,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -378,7 +378,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -435,7 +435,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -482,7 +482,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
@@ -541,7 +541,7 @@ jobs:
       - name: Ls
         run: ls -ltR /tmp/develocity-cache
       - name: Tar local cache
-        run: tar -czf local-cache.tgz -C /tmp/develocity-cache
+        run: tar -czf local-cache.tgz /tmp/develocity-cache
       - name: Upload local cache
         uses: actions/upload-artifact@v4
         with:
